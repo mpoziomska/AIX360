@@ -25,12 +25,17 @@ class FeatureBinarizer(TransformerMixin):
             returnOrd (bool): Also return standardized ordinal features
         """
         # List of categorical columns
+        print(colCateg)
         if type(colCateg) is pd.Series:
             self.colCateg = colCateg.tolist()
+            print("A")
         elif type(colCateg) is not list:
+            print("B")
             self.colCateg = [colCateg]
         else:
+            print("C")
             self.colCateg = colCateg
+        print(self.colCateg)
         # Number of quantile thresholds used to binarize ordinal features
         self.numThresh = numThresh
         self.thresh = {}
@@ -65,12 +70,12 @@ class FeatureBinarizer(TransformerMixin):
         NaN = []
         if self.returnOrd:
             ordinal = []
-
+        print(self.colCateg)
         # Iterate over columns
         for c in data:
             # number of unique values
             valUniq = data[c].nunique()
-            print(c, data[c].dtype, c in self.colCateg, data[c].dtype == 'object')
+            print(c in self.colCateg)
             # Constant or binary column
             if valUniq <= 2:
                 # Mapping to 0, 1
