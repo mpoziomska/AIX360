@@ -80,7 +80,7 @@ class FeatureBinarizer(TransformerMixin):
                 enc[c] = OneHotEncoder(sparse=False, dtype=int, handle_unknown='ignore')
                 # Fit to observed categories
                 #print(type(data[[c]]), type(data[c]), data[c])
-                enc[c].fit(data[c])
+                enc[c].fit(data[[c]])
 
             # Ordinal column
             elif np.issubdtype(data[c].dtype, np.integer) | np.issubdtype(data[c].dtype, np.floating):
