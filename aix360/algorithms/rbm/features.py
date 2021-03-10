@@ -79,7 +79,7 @@ class FeatureBinarizer(TransformerMixin):
                 # OneHotEncoder object
                 enc[c] = OneHotEncoder(sparse=False, dtype=int, handle_unknown='ignore')
                 # Fit to observed categories
-                print(data[[c]], "\nA\n")
+                #print(data[[c]], "\nA\n")
                 enc[c].fit(data[[c]])
 
             # Ordinal column
