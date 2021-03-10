@@ -70,7 +70,7 @@ class FeatureBinarizer(TransformerMixin):
         for c in data:
             # number of unique values
             valUniq = data[c].nunique()
-            print(c, data[c].dtype)
+            print(c, data[c].dtype, c in self.colCateg, data[c].dtype == 'object')
             # Constant or binary column
             if valUniq <= 2:
                 # Mapping to 0, 1
