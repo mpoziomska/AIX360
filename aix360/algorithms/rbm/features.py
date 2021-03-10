@@ -65,7 +65,6 @@ class FeatureBinarizer(TransformerMixin):
         NaN = []
         if self.returnOrd:
             ordinal = []
-        print(self.colCateg)
         # Iterate over columns
         for c in data:
             # number of unique values
